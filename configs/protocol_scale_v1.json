@@ -1,0 +1,31 @@
+{
+  "protocol": "r001-scale-v1",
+  "frozen_at_utc": "2026-10-03T14:05:42.264591+00:00",
+  "edges": [
+    1000,
+    10000,
+    100000
+  ],
+  "queries": [
+    1,
+    10
+  ],
+  "replicates": 3,
+  "seed_start": 2026103300,
+  "counts_per_edge": {
+    "N": 1000,
+    "S": 650
+  },
+  "epsilon": 1.0,
+  "delta": 0.05,
+  "graph": "public connected ring plus fixed random nonparallel chords, n=ceil(m/10)",
+  "scope": "exact selective-certifier kernel replay on fixed synthetic sufficient statistics; measures CPU/RSS, not report savings or recruitment",
+  "methods": [
+    "selective",
+    "edgewise",
+    "nonselective"
+  ],
+  "structure_baseline": "not computed beyond <=10 edges; never replace its result by a loose bound",
+  "code_snapshot": "local-source/code_execution_v2.tar.gz",
+  "source_snapshot_at_utc": "2026-10-03T14:43:05.056010+00:00"
+}

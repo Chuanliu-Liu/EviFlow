@@ -1,0 +1,63 @@
+{
+  "protocol": "r001-repair-v1",
+  "frozen_at_utc": "2026-10-03T14:18:17.941884+00:00",
+  "code_snapshot": "local-source/code_execution_v2.tar.gz",
+  "epsilon": [
+    1.0,
+    2.0
+  ],
+  "delta": [
+    0.05,
+    0.01
+  ],
+  "seed_start": 2026104300,
+  "seed_count": 30,
+  "development_seeds": [
+    87001,
+    87002,
+    87003
+  ],
+  "workloads": [
+    "triangle_true",
+    "triangle_mixed",
+    "chain_single",
+    "chain_shared",
+    "tree_mixed",
+    "shared_cut_false",
+    "shared_cut_true",
+    "disjoint_triangles"
+  ],
+  "batch": 128,
+  "budget": 32768,
+  "budgets_to_report": [
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "certifiers": [
+    "selective",
+    "edgewise",
+    "nonselective",
+    "structure"
+  ],
+  "samplers": [
+    "uniform",
+    "fractional"
+  ],
+  "sampling_comparison_certifier": "selective",
+  "integral_complete_comparison": "integral sampler + edgewise certifier, same reports",
+  "report_coupling": "fixed PCG64 per seed/workload/epsilon/edge stream; each method advances only the selected edge; coupled across delta",
+  "formal_user_model": "independent simulated fresh users; one RR bit each; no recruitment-rate claim",
+  "censoring": "all budget-limited runs retained; T_all null if incomplete; report restricted mean min(T_all,budget) and completion fraction together",
+  "risk": "any wrong certificate in entire run; risk delta once per method, never per query",
+  "primary_analysis": "paired per-seed differences and ratios, all frozen cells, no primary-cell selection",
+  "compute": "at most two processes, numerical threads one; elapsed and CPU plan/cert/update, peak RSS",
+  "repair": "rho=min(3/4, min_q public unweighted s-t connectivity / m); original rho comparator on same new streams",
+  "hypothesis": "Original sparse prior overpays for two-edge alternatives in dense TRUE workloads; public topology prior may help those and hurt sparse FALSE alternatives",
+  "selection": "one mechanism, all 8 original workloads x original eps/delta, no cell dropping",
+  "source_snapshot_at_utc": "2026-10-03T14:43:05.058919+00:00"
+}
